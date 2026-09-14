@@ -1,0 +1,14 @@
+{
+  "info": { "name": "Portfolio API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5000" }],
+  "item": [
+    { "name": "Health check", "request": { "method": "GET", "url": "{{baseUrl}}/" } },
+    { "name": "List projects", "request": { "method": "GET", "url": "{{baseUrl}}/api/projects" } },
+    { "name": "Get project", "request": { "method": "GET", "url": "{{baseUrl}}/api/projects/buckshot-roulette" } },
+    { "name": "Missing project", "request": { "method": "GET", "url": "{{baseUrl}}/api/projects/missing" } },
+    { "name": "List contacts", "request": { "method": "GET", "url": "{{baseUrl}}/api/contact" } },
+    { "name": "Create contact", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"message\": \"Hello from Postman\"\n}" }, "url": "{{baseUrl}}/api/contact" } },
+    { "name": "Invalid contact", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"invalid\",\n  \"message\": \"Hello\"\n}" }, "url": "{{baseUrl}}/api/contact" } },
+    { "name": "Unknown route", "request": { "method": "GET", "url": "{{baseUrl}}/api/doesnotexist" } }
+  ]
+}
